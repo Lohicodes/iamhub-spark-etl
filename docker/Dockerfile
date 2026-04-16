@@ -1,11 +1,11 @@
-from python:3.10
+FROM  python:3.10
 
 
 # Install Java (required for Spark)
-RUN apt-get update && apt-get install -y openjdk-17-jdk && apt-get clean
+RUN apt-get update && apt-get install -y default-jdk && apt-get clean
 
 # Set environment variables for Java
-ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/default-java
 ENV PATH=$JAVA_HOME/bin:$PATH
 
 # Install pyspark
