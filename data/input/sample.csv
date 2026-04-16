@@ -2,3 +2,5 @@ id,name,category,price
 1,Apple,Fruit,0.5
 2,Banana,Fruit,0.3
 3,Carrot,Vegetable,0.2
+4,Milk,Dairy,1.0
+5,Bread,Bakery,1.5
