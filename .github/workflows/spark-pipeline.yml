@@ -26,7 +26,7 @@ jobs:
           run: docker --version
 
         - name: Build docker image
-          run: docker build -t spark-local -f docker/dockerfile .
+          run: docker build -t spark-local .
 
         - name: Run Spark job
           run: |
