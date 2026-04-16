@@ -1,4 +1,4 @@
-from bitnami/spark:latest
+from apache/spark-py:v3.5.0
 
 
 user root
