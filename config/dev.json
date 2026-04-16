@@ -1,0 +1,13 @@
+{
+    "spark": {
+        "appName": "IAMHub Local Test",
+        "master": "local[*]",
+        "config": {
+        "spark.sql.shuffle.partitions": "4"
+        }
+    },
+    "inputPath": "data/input/sample.csv",
+    "outputPath": "data/output/processed_data",
+    "partition_Column": "category",
+    "numPartitions": 4
+}
