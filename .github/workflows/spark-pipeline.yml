@@ -21,6 +21,9 @@ jobs:
             distribution: 'temurin'
             java-version: '11'
 
+
+        
+          
         
         - name: set up docker
           run: docker --version
@@ -30,4 +33,10 @@ jobs:
 
         - name: Run Spark job
           run: |
-            docker run --rm spark-local
+            docker run --rm -v ${{ github.workspace }}/output:/app/output spark-local
+
+        - name: Upload output files
+          uses: actions/upload-artifact@v3
+          with:
+             name: spark-output
+             path: output/
