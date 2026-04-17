@@ -2,17 +2,16 @@ from pyspark.sql import SparkSession
 
 def run_spark_job():
     # Create a SparkSession
-    spark = SparkSession.builder.appName("SampleSparkJob").getOrCreate()
+    
 
-    # Read data from a CSV file
-    input_path = "data/input/sample.csv"
-    df = spark.read.csv(input_path, header=True, inferSchema=True)
+    spark = SparkSession.builder \
+        .appName("test-job") \
+        .getOrCreate()
 
-    # Perform some transformations (e.g., filter and group by category)
-    result_df = df.filter(df.price > 0.3).groupBy("category").count()
+    data = [("Lohith", 25), ("Rahul", 30), ("Anil", 35)]
+    columns = ["name", "age"]
 
-    # Show the results
-    result_df.show()
-
-    # Stop the SparkSession
+    df = spark.createDataFrame(data, columns)
+    df.write.mode("overwrite").option("compression", "snappy").parquet("/app/output/sample_parquet_snappy")
+        # Stop the SparkSession
     spark.stop()
